@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
       this.inputHandler = new InputHandler();
     }
     update(deltaTime) {
-        this.player.update(deltaTime);
+        this.player.update(deltaTime,this.inputHandler.keys);
     }
 
     draw(context) {
@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
   const game = new Game(canvas.width, canvas.height);
   let lastTime = 0;
   function animate(timestamp){  // This is the game loop so here we do actual things >:)
-    const deltaTime=timestamp-lastTime;
+    const deltaTime=(timestamp-lastTime)/1000;
     lastTime = timestamp;
     //Delta time things up this
     ctx.clearRect(0,0,canvas.width, canvas.height);
